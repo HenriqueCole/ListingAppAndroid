@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:id="@+id/containerItem"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:id="@+id/imageview"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/imageview"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        tools:text="Name" />
+
+    <TextView
+        android:id="@+id/sinopse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_toEndOf="@id/imageview"
+        android:textColor="@color/black"
+        tools:text="SINOPSE" />
+    <TextView
+        android:id="@+id/editora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sinopse"
+        android:layout_toEndOf="@id/imageview"
+        android:textColor="@color/black"
+        tools:text="EDITORA" />
+    <TextView
+        android:id="@+id/ano"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editora"
+        android:layout_toEndOf="@id/imageview"
+        android:textColor="@color/black"
+        tools:text="ANO" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@id/imageview"
+        android:layout_marginTop="40dp"
+        android:background="#DAD8D8"
+        />
+
+    <Button
+        android:id="@+id/deleteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/editora"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="210dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="-31dp"
+        android:text="Delete" />
+
+</RelativeLayout>

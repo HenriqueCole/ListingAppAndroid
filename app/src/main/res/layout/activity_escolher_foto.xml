@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EscolherFotoActivity" >
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="177dp"
+        android:layout_marginBottom="664dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/imageView16"
+        android:layout_width="116dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/profile" />
+
+    <ImageView
+        android:id="@+id/imageView18"
+        android:layout_width="116dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="272dp"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/profile" />
+
+    <ImageView
+        android:id="@+id/fotoRetrato"
+        android:layout_width="116dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="208dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/profile" />
+
+    <ImageView
+        android:id="@+id/imageView15"
+        android:layout_width="116dp"
+        android:layout_height="96dp"
+        android:layout_marginStart="272dp"
+        android:layout_marginBottom="208dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/profile" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="101dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginEnd="155dp"
+        android:layout_marginBottom="25dp"
+        android:text="Salvar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/fotoRostos"
+        android:layout_width="117dp"
+        android:layout_height="97dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="142dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toStartOf="@+id/imageView15"
+        app:srcCompat="@drawable/faces" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="117dp"
+        android:layout_height="97dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintEnd_toStartOf="@+id/imageView18"
+        app:srcCompat="@drawable/faces" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
