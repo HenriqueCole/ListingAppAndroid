@@ -1,17 +1,29 @@
 package com.example.listing;
 
+import android.net.Uri;
+
 public class Item {
 
     String name;
     String sinopse, editora, ano;
-    int image;
+    Uri image;
+    int imagePreview;
 
-    public Item(String name, String sinopse, String editora, String ano, int image) {
+    public Item(String name, String sinopse, String editora, String ano, Uri image) {
         this.name = name;
         this.sinopse = sinopse;
         this.editora = editora;
         this.ano = ano;
         this.image = image;
+    }
+
+
+    public Item(String name, String sinopse, String editora, String ano, int imagePreview) {
+        this.name = name;
+        this.sinopse = sinopse;
+        this.editora = editora;
+        this.ano = ano;
+        this.imagePreview = imagePreview;
     }
 
     public String getName() {
@@ -46,11 +58,20 @@ public class Item {
         this.ano = ano;
     }
 
-    public int getImage() {
+    public Uri getImage() {
         return image;
     }
 
-    public void setImage(int image) {
+    public void setImage(Uri image) {
         this.image = image;
     }
+
+    public int getImagePreview() {
+        return imagePreview;
+    }
+
+    public void setImagePreview(int imagePreview) {
+        this.imagePreview = imagePreview;
+    }
+
 }

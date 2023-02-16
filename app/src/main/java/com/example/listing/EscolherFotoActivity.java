@@ -2,7 +2,6 @@ package com.example.listing;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,7 +19,7 @@ public class EscolherFotoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_escolher_foto);
-        imageView = findViewById(R.id.imageView);
+        imageView = findViewById(R.id.seeImage);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,7 +40,7 @@ public class EscolherFotoActivity extends AppCompatActivity {
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
                 // Adicionar imagem ao ImageView ou ao lugar desejado na sua UI
-                ImageView imageView = findViewById(R.id.imageView);
+                ImageView imageView = findViewById(R.id.seeImage);
                 imageView.setImageBitmap(bitmap);
             } catch (IOException e) {
                 e.printStackTrace();

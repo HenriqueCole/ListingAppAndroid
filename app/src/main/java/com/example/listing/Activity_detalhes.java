@@ -1,6 +1,7 @@
 package com.example.listing;
 
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
@@ -30,6 +31,9 @@ public class Activity_detalhes extends AppCompatActivity {
             String ano = extras.getString("ano");
             TextView anoText = (TextView) findViewById(R.id.anoText);
             anoText.setText(ano);
+
+            ImageView image = (ImageView) findViewById(R.id.seeImage);
+            image.setImageURI(extras.getParcelable("image"));
         }
     }
 }

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 
@@ -29,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements SelectListener {
             String sinopse = extras.getString("sinopse");
             String editora = extras.getString("editora");
             String ano = extras.getString("ano");
-            items.add(new Item(nome, sinopse, editora, ano, R.drawable.profile));
+            Uri image = extras.getParcelable("image");
+            items.add(new Item(nome, sinopse, editora, ano, image));
         }
 
         button = findViewById(R.id.botaoFlutuante);
@@ -66,6 +68,7 @@ public class MainActivity extends AppCompatActivity implements SelectListener {
         i.putExtra("sinopse", item.sinopse);
         i.putExtra("editora", item.editora);
         i.putExtra("ano", item.ano);
+        System.out.println("ASMDAISFNOWIJFO`QWEIHFÌOQWHFIQWHIPUOQEHguItem: " + item.image);
         startActivity(i);
     }
 }

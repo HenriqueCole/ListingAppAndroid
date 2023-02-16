@@ -35,7 +35,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.sinopseView.setText(items.get(position).getSinopse());
         holder.editoraView.setText(items.get(position).getEditora());
         holder.yearView.setText(items.get(position).getAno());
-        holder.imageView.setImageResource(items.get(position).getImage());
+        holder.imageView.setImageURI(
+                items.get(position).getImage()
+        );
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

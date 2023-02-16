@@ -1,7 +1,9 @@
 package com.example.listing;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -19,13 +21,15 @@ import java.io.IOException;
 public class CadastroActivity extends AppCompatActivity {
     private Button button;
     private Button buttonVoltar;
-    private String selectedImagePath = null;
+    private Uri selectedImage;
 
+    ImageView imageGot;
     private EditText nome, sinopse, editora, ano;
     private Button botaoSalvar;
 
     private static final int REQUEST_CODE = 100;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +39,7 @@ public class CadastroActivity extends AppCompatActivity {
         editora = findViewById(R.id.editoraInput);
         ano = findViewById(R.id.anoInput);
         botaoSalvar = findViewById(R.id.saveButton);
+        imageGot = findViewById(R.id.imagePreview);
         botaoSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,7 +48,7 @@ public class CadastroActivity extends AppCompatActivity {
                 intent.putExtra("sinopse", sinopse.getText().toString());
                 intent.putExtra("editora", editora.getText().toString());
                 intent.putExtra("ano", ano.getText().toString());
-                intent.putExtra("imagem", selectedImagePath);
+                intent.putExtra("image", selectedImage);
                 startActivity(intent);
             }
         });
@@ -66,28 +71,29 @@ public class CadastroActivity extends AppCompatActivity {
         });
     }
 
-    private void selectImage() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, REQUEST_CODE);
-    }
+
 
     private static final int PICK_IMAGE_REQUEST = 1;
     private void openEscolherFoto() {
-        Intent intent = new Intent();
-        intent.setType("image/*");
-        intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(intent, "Selecione uma imagem"), PICK_IMAGE_REQUEST);
+        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        startActivityForResult(intent, 3);
     }
 
-    private String getPathFromURI(Uri contentUri) {
-        String[] proj = {MediaStore.Images.Media.DATA};
-        Cursor cursor = getContentResolver().query(contentUri, proj, null, null, null);
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        String result = cursor.getString(column_index);
-        cursor.close();
-        return result;
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK && data != null) {
+            selectedImage = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+                imageGot.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
+
+
 
     private void voltarParaLista() {
         Intent intent = new Intent(this, MainActivity.class);
